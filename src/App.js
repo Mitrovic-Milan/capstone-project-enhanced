@@ -36,6 +36,7 @@ const Styleddiv = styled.div`
   white-space: normal;
   overflow-y: scroll;
 `;
+
 const Styleddiv2 = styled.div`
   display: flex;
   flex-direction: column;
