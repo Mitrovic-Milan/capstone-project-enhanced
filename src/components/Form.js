@@ -1,4 +1,5 @@
 import {nanoid} from 'nanoid';
+import {Button} from './Button';
 
 const Form = ({input, setInput, todos, setTodos}) => {
   const onInputChange = e => {
@@ -16,9 +17,7 @@ const Form = ({input, setInput, todos, setTodos}) => {
       <label>Neue Todos</label>
       <br />
       <input type="text" className="task-input" value={input} required onChange={onInputChange} maxLength={40} />
-      <button className="button-submit" type="submit">
-        Submit
-      </button>
+      <Button textValue={'Submit'} />
     </form>
   );
 };

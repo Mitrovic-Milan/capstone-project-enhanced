@@ -1,7 +1,7 @@
-export const Button = () => {
+export const Button = ({textValue}) => {
   return (
     <button className="button-submit" type="submit">
-      Submit
+      {textValue}
     </button>
   );
 };

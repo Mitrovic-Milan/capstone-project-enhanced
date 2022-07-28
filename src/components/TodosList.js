@@ -1,13 +1,22 @@
+import styled from 'styled-components';
+
 const TodosList = ({todos}) => {
   return (
-    <div>
+    <StyledUl>
       {todos.map(todo => (
         <li className="list-item" key={todo.id}>
           <span className="list">{todo.title}</span>
         </li>
       ))}
-    </div>
+    </StyledUl>
   );
 };
+
+const StyledUl = styled.ul`
+  width: 100%;
+  margin-left: 20px;
+  text-align: left;
+  overflow-y: scroll;
+`;
 
 export default TodosList;

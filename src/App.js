@@ -9,22 +9,20 @@ const App = () => {
   const [todos, setTodos] = useState([]);
   return (
     <div className="container">
-      <div className="app-wrapper">
-        <div>
-          <Header />
-        </div>
-        <Styleddiv>
-          <TodosList todos={todos} setTodos={setTodos} />
-        </Styleddiv>
-        <Styleddiv2>
-          <Form input={input} setInput={setInput} todos={todos} setTodos={setTodos} />
-        </Styleddiv2>
+      <div>
+        <Header />
       </div>
+      <StyledList>
+        <TodosList todos={todos} setTodos={setTodos} />
+      </StyledList>
+      <StyledForm>
+        <Form input={input} setInput={setInput} todos={todos} setTodos={setTodos} />
+      </StyledForm>
     </div>
   );
 };
 
-const Styleddiv = styled.div`
+const StyledList = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -34,10 +32,9 @@ const Styleddiv = styled.div`
   text-overflow: ellipsis;
   overflow: hidden;
   white-space: normal;
-  overflow-y: scroll;
 `;
 
-const Styleddiv2 = styled.div`
+const StyledForm = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
