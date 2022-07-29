@@ -8,17 +8,15 @@ const App = () => {
   const [input, setInput] = useState('');
   const [todos, setTodos] = useState([]);
   return (
-    <div className="container">
-      <div>
-        <Header />
-      </div>
+    <>
+      <Header />
       <StyledList>
         <TodosList todos={todos} setTodos={setTodos} />
       </StyledList>
       <StyledForm>
         <Form input={input} setInput={setInput} todos={todos} setTodos={setTodos} />
       </StyledForm>
-    </div>
+    </>
   );
 };
 

@@ -1,11 +1,7 @@
 import styled from 'styled-components';
 
 const Header = () => {
-  return (
-    <div className="header">
-      <Styledh1>Todo-List</Styledh1>
-    </div>
-  );
+  return <Styledh1>Todo-List</Styledh1>;
 };
 
 const Styledh1 = styled.h1`

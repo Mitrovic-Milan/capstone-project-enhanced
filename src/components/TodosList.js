@@ -4,8 +4,8 @@ const TodosList = ({todos}) => {
   return (
     <StyledUl>
       {todos.map(todo => (
-        <li className="list-item" key={todo.id}>
-          <span className="list">{todo.title}</span>
+        <li key={todo.id}>
+          <span>{todo.title}</span>
         </li>
       ))}
     </StyledUl>
@@ -14,7 +14,7 @@ const TodosList = ({todos}) => {
 
 const StyledUl = styled.ul`
   width: 100%;
-  margin-left: 20px;
+  margin-left: 15px;
   text-align: left;
   overflow-y: scroll;
 `;
