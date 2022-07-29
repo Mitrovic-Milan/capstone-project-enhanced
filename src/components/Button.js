@@ -7,5 +7,4 @@ export const Button = ({textValue}) => {
 const StyledButton = styled.button`
   background: gray;
   border-radius: 5px;
-  padding: 5px;
 `;
