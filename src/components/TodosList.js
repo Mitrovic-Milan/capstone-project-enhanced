@@ -20,7 +20,6 @@ const TodosList = ({todos, deleteTodo}) => {
 };
 
 const StyledUl = styled.ul`
-  width: 100%;
   margin-left: 0px;
   margin-right: 0px;
   margin-bottom: 1em;
