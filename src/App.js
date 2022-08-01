@@ -7,14 +7,25 @@ import TodosList from './components/TodosList';
 const App = () => {
   const [input, setInput] = useState('');
   const [todos, setTodos] = useState([]);
+
+  function newInput(inputValue) {
+    setInput(inputValue);
+  }
+  function newTodo(newTodoValue) {
+    setTodos(newTodoValue);
+  }
+  function deleteTodo(akTodo) {
+    setTodos(current => current.filter(obj => obj.id !== akTodo));
+  }
+
   return (
     <>
       <Header />
       <StyledList>
-        <TodosList todos={todos} setTodos={setTodos} />
+        <TodosList todos={todos} deleteTodo={deleteTodo} />
       </StyledList>
       <StyledForm>
-        <Form input={input} setInput={setInput} todos={todos} setTodos={setTodos} />
+        <Form input={input} newInput={newInput} todos={todos} newTodo={newTodo} />
       </StyledForm>
     </>
   );
