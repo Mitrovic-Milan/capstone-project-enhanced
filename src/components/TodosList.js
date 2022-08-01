@@ -38,10 +38,6 @@ const StyledUl = styled.ul`
     font-size: 25px;
     margin-left: 0;
   }
-
-  img {
-    font-size: 2.5em;
-  }
 `;
 
 export default TodosList;
