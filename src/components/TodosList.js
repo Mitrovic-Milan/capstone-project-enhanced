@@ -29,6 +29,7 @@ const StyledUl = styled.ul`
   text-align: left;
   overflow-y: scroll;
   display: block;
+  width: 100vh;
 
   li {
     border: none;
