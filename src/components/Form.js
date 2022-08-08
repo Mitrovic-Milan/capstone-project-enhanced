@@ -8,7 +8,7 @@ const Form = ({input, newInput, todos, newTodo}) => {
 
   const onFormSubmit = e => {
     e.preventDefault();
-    newTodo([...todos, {id: nanoid(), title: input, completed: false}]);
+    newTodo([...todos, {id: nanoid(), title: input, completed: false, color: 'red'}]);
     newInput('');
   };
 

@@ -1,44 +1,50 @@
 import styled from 'styled-components';
-import {Button} from './Button';
+import {DeleteButton} from './DeleteButton';
 
-const TodosList = ({todos, deleteTodo}) => {
+const TodosList = ({todos, deleteTodo, changeColor}) => {
   function onHandleClick(e) {
+    console.log(e.target.dataset);
     const todoid = e.target.dataset.id;
     deleteTodo(todoid);
   }
 
+  function onHandleToggle(e) {
+    const todoid = e.target.dataset.id;
+
+    changeColor(todoid);
+  }
   return (
     <StyledUl>
       {todos.map(todo => (
-        <li key={todo.id}>
-          <span>{todo.title}</span>
-          <Button textValue={'Delete'} onClick={onHandleClick} dataid={todo.id} />
-        </li>
+        <span key={todo.id}>
+          <StyledLi color={todo.color} onClick={onHandleToggle} data-id={todo.id}>
+            <span data-id={todo.id}>{todo.title}</span>
+          </StyledLi>
+          <DeleteButton onClick={onHandleClick} dataid={todo.id} />
+        </span>
       ))}
     </StyledUl>
   );
 };
 
 const StyledUl = styled.ul`
-  margin-left: 0px;
-  margin-right: 0px;
-  margin-bottom: 1em;
-  margin-top: 1em;
-  padding-left: 40px;
-  list-style-type: disc;
+  padding-left: 140px;
+  padding-right: 110px;
   text-align: left;
   overflow-y: scroll;
   display: block;
   width: 100vh;
-
-  li {
-    border: none;
-    padding: 15px 32px;
-    grid-template-columns: auto 100px;
-    display: grid;
-    font-size: 25px;
-    margin-left: 0;
-  }
+`;
+const StyledLi = styled.li`
+  border: none;
+  padding: 15px 32px;
+  grid-template-columns: auto 100px;
+  display: grid;
+  font-size: 20px;
+  margin-left: 0;
+  overflow-x: scroll;
+  background-color: ${props => (props.color ? props.color : ' hotpink')};
+  position: relative;
 `;
 
 export default TodosList;

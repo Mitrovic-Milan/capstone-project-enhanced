@@ -1,18 +1,20 @@
 import styled from 'styled-components';
+import {Icon} from '@iconify/react';
 
-export const Button = ({textValue, onClick, dataid}) => {
+export const DeleteButton = ({onClick, dataid}) => {
   return (
     <>
       <StyledButton type="submit" onClick={onClick} data-id={dataid}>
-        {textValue}
+        <Icon icon="ant-design:delete-outlined" style={{fontsize: '28px'}} data-id={dataid} />
       </StyledButton>
     </>
   );
 };
 
 const StyledButton = styled.button`
-  background: gray;
+  background: transparent;
   border-radius: 5px;
   width: 75px;
   padding-top: 1px;
+  position: relative;
 `;

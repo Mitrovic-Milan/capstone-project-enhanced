@@ -17,12 +17,31 @@ const App = () => {
   function deleteTodo(akTodo) {
     setTodos(current => current.filter(obj => obj.id !== akTodo));
   }
+  function changeColor(todoid) {
+    setTodos(current =>
+      current.map(obj => {
+        if (obj.id === todoid) {
+          const bcolor = obj.color === 'red' ? 'green' : 'red';
+          return {
+            ...obj,
+            color: bcolor,
+          };
+        }
+        return obj;
+      })
+    );
+  }
+
+  function sortdata() {
+    return todos.sort(todo => todo.color !== 'red');
+  }
+  sortdata();
 
   return (
     <>
       <Header />
       <StyledList>
-        <TodosList todos={todos} deleteTodo={deleteTodo} />
+        <TodosList todos={todos} deleteTodo={deleteTodo} changeColor={changeColor} />
       </StyledList>
       <StyledForm>
         <Form input={input} newInput={newInput} todos={todos} newTodo={newTodo} />
