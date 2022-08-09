@@ -3,28 +3,28 @@ import styled from 'styled-components';
 import Header from './components/Header';
 import Form from './components/Form';
 import TodosList from './components/TodosList';
+import {nanoid} from 'nanoid';
 
 const App = () => {
-  const [input, setInput] = useState('');
   const [todos, setTodos] = useState([]);
 
-  function newInput(inputValue) {
-    setInput(inputValue);
+  function handleAddTodo(todo) {
+    console.log(todo);
+    setTodos([...todos, {id: nanoid(), title: todo, completed: false}]);
+    // add todo to todos
   }
-  function newTodo(newTodoValue) {
-    setTodos(newTodoValue);
-  }
-  function deleteTodo(akTodo) {
+
+  function handleDeleteTodo(akTodo) {
     setTodos(current => current.filter(obj => obj.id !== akTodo));
   }
-  function changeColor(todoid) {
+  function handleToggleCompleted(todoid) {
+    console.log(setTodos);
     setTodos(current =>
       current.map(obj => {
         if (obj.id === todoid) {
-          const bcolor = obj.color === 'red' ? 'green' : 'red';
           return {
             ...obj,
-            color: bcolor,
+            completed: !obj.completed,
           };
         }
         return obj;
@@ -32,19 +32,18 @@ const App = () => {
     );
   }
 
-  function sortdata() {
-    return todos.sort(todo => todo.color !== 'red');
-  }
-  sortdata();
-
   return (
     <>
       <Header />
       <StyledList>
-        <TodosList todos={todos} deleteTodo={deleteTodo} changeColor={changeColor} />
+        <TodosList
+          todos={todos.sort((a, b) => (a.completed ? (b.completed ? 0 : 1) : !b.completed ? 0 : -1))}
+          onDeleteTodo={handleDeleteTodo}
+          onToggleCompleted={handleToggleCompleted}
+        />
       </StyledList>
       <StyledForm>
-        <Form input={input} newInput={newInput} todos={todos} newTodo={newTodo} />
+        <Form onAddTodo={handleAddTodo} />
       </StyledForm>
     </>
   );

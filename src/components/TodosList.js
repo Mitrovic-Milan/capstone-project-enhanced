@@ -1,23 +1,23 @@
 import styled from 'styled-components';
 import {DeleteButton} from './DeleteButton';
 
-const TodosList = ({todos, deleteTodo, changeColor}) => {
+const TodosList = ({todos, onDeleteTodo, onToggleCompleted}) => {
   function onHandleClick(e) {
     console.log(e.target.dataset);
     const todoid = e.target.dataset.id;
-    deleteTodo(todoid);
+    onDeleteTodo(todoid);
   }
 
   function onHandleToggle(e) {
     const todoid = e.target.dataset.id;
 
-    changeColor(todoid);
+    onToggleCompleted(todoid);
   }
   return (
     <StyledUl>
       {todos.map(todo => (
         <span key={todo.id}>
-          <StyledLi color={todo.color} onClick={onHandleToggle} data-id={todo.id}>
+          <StyledLi completed={todo.completed} onClick={onHandleToggle} data-id={todo.id}>
             <span data-id={todo.id}>{todo.title}</span>
           </StyledLi>
           <DeleteButton onClick={onHandleClick} dataid={todo.id} />
@@ -43,7 +43,7 @@ const StyledLi = styled.li`
   font-size: 20px;
   margin-left: 0;
   overflow-x: scroll;
-  background-color: ${props => (props.color ? props.color : ' hotpink')};
+  background-color: ${props => (props.completed ? 'green' : 'red')};
   position: relative;
 `;
 

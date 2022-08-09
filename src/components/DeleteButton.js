@@ -17,4 +17,6 @@ const StyledButton = styled.button`
   width: 75px;
   padding-top: 1px;
   position: relative;
+  left: 450px;
+  bottom: 40px;
 `;

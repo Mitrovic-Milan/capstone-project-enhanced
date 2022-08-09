@@ -11,8 +11,8 @@ export const Button = ({textValue, onClick, dataid}) => {
 };
 
 const StyledButton = styled.button`
-  background: gray;
-  border-radius: 5px;
+  background: sandybrown;
+  border-radius: 6px;
   width: 75px;
-  padding-top: 1px;
+  padding-top: 3px;
 `;
