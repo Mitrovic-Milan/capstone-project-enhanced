@@ -14,9 +14,9 @@ export const DeleteButton = ({onClick, dataid}) => {
 const StyledButton = styled.button`
   background: transparent;
   border-radius: 5px;
-  width: 75px;
-  padding-top: 1px;
   position: relative;
+  width: 75px;
   left: 450px;
   bottom: 40px;
+  padding-top: 1px;
 `;

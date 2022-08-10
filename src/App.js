@@ -1,12 +1,20 @@
-import {useState} from 'react';
+import {useEffect, useState} from 'react';
 import styled from 'styled-components';
 import Header from './components/Header';
 import Form from './components/Form';
 import TodosList from './components/TodosList';
 import {nanoid} from 'nanoid';
+import {loadFromLocalStorage, writeToLocalStorage} from './util/LocalStorage';
 
 const App = () => {
-  const [todos, setTodos] = useState([]);
+  const [todos, setTodos] = useState(() => {
+    const value = loadFromLocalStorage('todos');
+    return value ?? [];
+  });
+
+  useEffect(() => {
+    writeToLocalStorage('todos', todos);
+  }, [todos]);
 
   function handleAddTodo(todo) {
     console.log(todo);
