@@ -27,6 +27,7 @@
     "web-vitals": "^2.1.4"
   },
   "devDependencies": {
+    "@iconify/react": "^3.2.2",
     "@jest/globals": "^28.1.0",
     "@storybook/addon-actions": "^6.5.9",
     "@storybook/addon-essentials": "^6.5.9",
