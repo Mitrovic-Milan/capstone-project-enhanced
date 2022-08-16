@@ -31,7 +31,6 @@ const TodosList = ({todos, onDeleteTodo, onToggleCompleted}) => {
 
 const StyledUl = styled.ul`
   overflow-y: scroll;
-
   width: 100%;
 `;
 const StyledLi = styled.li`
