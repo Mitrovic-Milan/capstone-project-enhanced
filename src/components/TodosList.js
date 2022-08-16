@@ -16,35 +16,41 @@ const TodosList = ({todos, onDeleteTodo, onToggleCompleted}) => {
   return (
     <StyledUl>
       {todos.map(todo => (
-        <span key={todo.id}>
-          <StyledLi completed={todo.completed} onClick={onHandleToggle} data-id={todo.id}>
+        <StyledSpan key={todo.id} completed={todo.completed}>
+          <StyledLi onClick={onHandleToggle} data-id={todo.id}>
             <span data-id={todo.id}>{todo.title}</span>
+            <span data-id={todo.id}>{todo.createAt}</span>
+            <span data-id={todo.id}>{todo.completetAt}</span>
           </StyledLi>
           <DeleteButton onClick={onHandleClick} dataid={todo.id} />
-        </span>
+        </StyledSpan>
       ))}
     </StyledUl>
   );
 };
 
 const StyledUl = styled.ul`
-  padding-left: 140px;
-  padding-right: 110px;
-  text-align: left;
   overflow-y: scroll;
-  display: block;
-  width: 100vh;
+
+  width: 100%;
 `;
 const StyledLi = styled.li`
   border: none;
-  padding: 15px 32px;
-  grid-template-columns: auto 100px;
-  display: grid;
+  padding: 15px 32px 15px 15px;
+  flex-direction: column;
+  display: flex;
   font-size: 20px;
-  margin-left: 0;
   overflow-x: scroll;
-  background-color: ${props => (props.completed ? 'green' : 'red')};
+  width: 100%;
   position: relative;
 `;
-
+const StyledSpan = styled.span`
+  background-color: ${props => (props.completed ? 'rgba(0,150,0,0.6)' : 'rgba(240,20,50,0.6)')};
+  width: 100%;
+  display: flex;
+  height: 100%;
+  flex-direction: row;
+  margin-top: 5px;
+  align-items: center;
+`;
 export default TodosList;

@@ -5,7 +5,7 @@ export const DeleteButton = ({onClick, dataid}) => {
   return (
     <>
       <StyledButton type="submit" onClick={onClick} data-id={dataid}>
-        <Icon icon="ant-design:delete-outlined" style={{fontsize: '28px'}} data-id={dataid} />
+        <Icon icon="ant-design:delete-outlined" fontSize={'28px'} data-id={dataid} />
       </StyledButton>
     </>
   );
@@ -13,10 +13,10 @@ export const DeleteButton = ({onClick, dataid}) => {
 
 const StyledButton = styled.button`
   background: transparent;
-  border-radius: 5px;
-  position: relative;
-  width: 75px;
-  left: 450px;
-  bottom: 40px;
-  padding-top: 1px;
+  border-radius: 10px;
+  padding-top: 5px;
+  color: whitesmoke;
+  width: 140px;
+  margin: 15px;
+  max-height: 40px;
 `;
